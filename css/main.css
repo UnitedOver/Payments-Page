@@ -1,0 +1,998 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
+/*
+* === BASIC STYLING===
+*/
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f6f9fc;
+}
+input,body,div,span,li{
+    font-family: 'Roboto';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+* === LOGO STYLE ===
+*/
+.logo {
+    font-size: 2.37em;
+    color: #fff;
+    cursor: default;
+}
+
+
+#detailscreen,.detailsside {
+    position: absolute;
+}
+#detailscreen,.detailsside,#nextButton {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    transition-timing-function: ease;
+}
+#invoice_ic div{
+    display: inline-block;
+}
+.payment_invoice_id{
+    font-size: 18px;
+    float: right;
+    color: #fff;
+    line-height: 36px;
+
+}
+#invoice_ic{
+    display: none;
+    left: 32px;
+    bottom: 32px;
+    position: absolute;
+}
+
+.detaiscreen_bg{
+    background: #fff;
+}
+.paywithcard,.loading_box{
+    background: #fff;
+}
+
+#countryselector:after {
+    content: "";
+    width: 10px;
+    height: 11px;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    right: 18px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+
+.selcountryp {
+    top: 322px;
+    right: 50%;
+    transform: translate(50%, 0);
+    height: 52px;
+    width: 52px;
+    border-radius: 27px;
+    cursor: pointer;
+}
+
+.detailsside {
+
+    height: 512px;
+    width: 342px;
+    right: 0;
+    border-radius: 0;
+    top: -30px;
+}
+.details_side_shad{
+    -webkit-box-shadow: 0 0 32px 0 rgba(122, 122, 122, 0.15);
+    -moz-box-shadow: 0 0 32px 0 rgba(122, 122, 122, 0.15);
+    box-shadow: 0 0 32px 0 rgba(122, 122, 122, 0.15);
+}
+
+.selcountryp .icon-next_arrow-dims {
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+}
+
+.detailsside .icon-next_arrow-dims {
+    position: absolute;
+    bottom: 40px;
+    right: 50%;
+    transform: translate(50%, 0);
+}
+#detailscreen_pg{
+    display: none;
+}
+#nextButton {
+    z-index: 2;
+}
+
+.logo_pos {
+    position: absolute;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    transition-timing-function: ease-in-out;
+}
+#nextButton{
+    cursor: pointer;
+}
+
+.logo_landing {
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.logo_details_page {
+    left: 30px;
+    top: 42px;
+}
+.main_container {
+    width: 683px;
+    height: 455px;
+    margin: auto;
+    position: relative;
+    background-color: #0087ff;
+    -webkit-box-shadow: 0 0 32px 0 rgba(122, 122, 122, 0.15);
+    -moz-box-shadow: 0 0 32px 0 rgba(122, 122, 122, 0.15);
+    box-shadow: 0 0 32px 0 rgba(122, 122, 122, 0.15);
+}
+
+.group {
+    font-weight: 300;
+    position: relative;
+    margin-bottom: 30px;
+}
+.details_field .group input{
+    width: 300px;
+}
+.payWithCardButton{
+    text-transform: uppercase;
+    color:#fff;
+    font-size: 1em;
+    text-align: center;
+    width: 80px;
+    border-radius: 4px;
+    background: #0087ff;
+    cursor: pointer;
+    display: block;
+    margin: 5px auto 0;
+    padding: 7px 0 6px;
+}
+.process_info{
+    font-size: 11px;
+    color: #c1c1c1;
+    text-align: right;
+    margin-top: 4px;
+    cursor: default;
+    padding-right: 4px;
+}
+.orpaywith{
+    color: #888;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 24px;
+}
+.otherPayOptions{
+    margin-top: 16px;
+    text-align: center;
+}
+.paywithPaypal{
+    margin-right: 18px;
+}
+.paywithBTC{
+    margin-left: 18px;
+    padding-top: 7px;
+}
+.otherPayOptions .otbtn:hover{
+    box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.05);
+}
+
+.otherPayOptions .otbtn{
+    border-radius: 4px;
+    height: 35px;
+    background: #eee;
+    margin-top: 8px;
+}
+.otherPayOptions{
+    width: 250px;
+    margin: auto;
+}
+.otherPayOptions div{
+    margin: auto;
+}
+
+
+/*
+* === INPUT STYLING ===
+*/
+.card_details .group label{
+    text-transform: capitalize;
+}
+.cardCol div{
+    display: inline-block;
+}
+.cardCol .smrow{
+    float: right;
+}
+.cardCol .group{
+    margin-bottom: 25px;
+}
+.cardCol .widerow input{
+    width: 200px;
+}
+.paywithBTC,.otherPayOptions div{
+    cursor: pointer;
+}
+.cardCol .smrow input{
+    width: 80px;
+}
+
+.group input {
+    color: #888;
+    font-size: 20px;
+    padding: 10px 10px 5px 5px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #dfdfdf;
+    font-weight: 300;
+}
+#date{
+    position: absolute;
+    right: 42px;
+    color: #888;
+    font-weight: 300;
+    font-size: 1em;
+}
+.group input:focus {
+    outline: none;
+}
+.details_field{
+    top: 88px;
+    position: relative;
+}
+#user_details{
+    top: 42px;
+    position: relative;
+}
+.details_field{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.paywithcard{
+    color: #0087ff;
+    font-size: 0.8em;
+    cursor: default;
+    margin: auto;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,0);
+    width: 148px;
+    top: -10px;
+    text-align: center;
+}
+.payment_methods{
+    display: none;
+    position: relative;
+    top: 73px;
+    padding:0 12px;
+}
+.card_details{
+    height: 228px;
+    border-radius: 4px;
+    border: 1px solid #b3dbff;
+    padding: 40px 8px 0;
+}
+.group input,.group label{
+
+    transition: 1s ease border-color;
+    -moz-transition: 1s ease border-color;
+    -webkit-transition: 1s ease border-color;
+}
+/*----------LABEL----------*/
+.group label {
+    color: #888;
+    font-size: 1.125em;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 14px;
+    text-transform: uppercase;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/*----------ACTIVE STATE----------*/
+.group input:focus ~ label, .group input:valid ~ label {
+    top: -9px;
+    font-size: 0.8em;
+    color: #888;
+}
+.enter_amount_sec{
+    text-align: center;
+    color: #888;
+    top: 30px;
+    position: relative;
+
+}
+.details_view{
+    display: none;
+    position: absolute;
+    top: 150px;
+    left: 32px;
+}
+.enter_amount_sec .currency{
+    font-weight: 300;
+    font-size: 1.8em;
+    vertical-align: top;
+}
+.enter_amount_sec label{
+    cursor: default;
+    vertical-align: top;
+}
+.enter_amount_sec .amount{
+    font-size: 3.3em;
+    margin-left: 8px;
+    color: #888;
+    padding: 0;
+    font-weight: 100;
+    top: -7px;
+    position: relative;
+}
+input.amount{
+    border: none;
+    min-width: 20px;
+}
+
+
+.group .highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+
+.amount{
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.error .amount{
+    color: #a70000 !important;
+    border-bottom: none !important;
+}
+#vr_back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+/*
+* === COUNTRY LIST SELECTOR===
+*/
+#countryselectorlist,#countrpar,#countryselector{
+    width: 512px;
+    max-width: 512px;
+}
+#countrpar,#countryselector{
+    height: 58px;
+}
+#countryselectorlist{
+    display: none;
+}
+#countryselectorlist ul {
+    list-style: none;
+    position: relative;
+    left: -20px;
+    outline: none;
+    max-height: 350px;
+}
+#countryselectorlist ul li:hover,#countryselectorlist ul .selected{
+    background: #f5f5f5;
+}
+#countryselectorlist ul li{
+    font-weight: 300;
+    font-size: 20px;
+    color: #555;
+    border-bottom: 2px solid rgba(151, 151, 151,0.2);
+    padding: 12px;
+}
+#countryselectorlist{
+    position: absolute;
+    background: #fff;
+    z-index: 4;
+    padding: 1px 0;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 32px 0 rgba(122, 122, 122, 0.15);
+    -moz-box-shadow: 0 0 32px 0 rgba(122, 122, 122, 0.15);
+    box-shadow: 0 0 32px 0 rgba(122, 122, 122, 0.15);
+}
+#countryselector {
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.18em;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding: 18px;
+    box-sizing: border-box;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    margin: auto;
+}
+/*
+* === EROR STYLING===
+*/
+.error input{
+    border-bottom: 1px solid #a70000 !important;
+}
+.error label{
+    color: #a70000 !important;
+}
+
+.ic_dis_labels{
+    display: inline-block;
+    float: left;
+}
+/*
+* === ICONS ===
+*/
+.icon-cryptocurrencies{
+    background-image: url('/images/crypto_currency.png');
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 20px;
+    top: 3px;
+    position: relative;
+    background-size: contain;
+
+}
+.icon-Bitcoin_logo, .icon-Bitcoin_logo\:regular {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20height%3D%2263%22%20width%3D%22300%22%20version%3D%221.1%22%20viewBox%3D%220%200%20307%2064%22%3E%3Cg%20transform%3D%22translate%28-289.61%20-317.5%29%22%3E%3Cpath%20d%3D%22m352.64%20357.25c-4.274%2017.143-21.637%2027.576-38.782%2023.301-17.138-4.274-27.571-21.638-23.295-38.78%204.272-17.145%2021.635-27.579%2038.775-23.305%2017.144%204.274%2027.576%2021.64%2023.302%2038.784z%22%20fill%3D%22%23f7931a%22%2F%3E%3Cpath%20d%3D%22m335.71%20344.95c0.637-4.258-2.605-6.547-7.038-8.074l1.438-5.768-3.511-0.875-1.4%205.616c-0.923-0.23-1.871-0.447-2.813-0.662l1.41-5.653-3.509-0.875-1.439%205.766c-0.764-0.174-1.514-0.346-2.242-0.527l0.004-0.018-4.842-1.209-0.934%203.75s2.605%200.597%202.55%200.634c1.422%200.355%201.679%201.296%201.636%202.042l-1.638%206.571c0.098%200.025%200.225%200.061%200.365%200.117-0.117-0.029-0.242-0.061-0.371-0.092l-2.296%209.205c-0.174%200.432-0.615%201.08-1.609%200.834%200.035%200.051-2.552-0.637-2.552-0.637l-1.743%204.019%204.569%201.139c0.85%200.213%201.683%200.436%202.503%200.646l-1.453%205.834%203.507%200.875%201.439-5.772c0.958%200.26%201.888%200.5%202.798%200.726l-1.434%205.745%203.511%200.875%201.453-5.823c5.987%201.133%2010.489%200.676%2012.384-4.739%201.527-4.36-0.076-6.875-3.226-8.515%202.294-0.529%204.022-2.038%204.483-5.155zm-8.022%2011.249c-1.085%204.36-8.426%202.003-10.806%201.412l1.928-7.729c2.38%200.594%2010.012%201.77%208.878%206.317zm1.086-11.312c-0.99%203.966-7.1%201.951-9.082%201.457l1.748-7.01c1.982%200.494%208.365%201.416%207.334%205.553z%22%20fill%3D%22%23FFF%22%2F%3E%3Cg%20fill%3D%22%234d4d4d%22%3E%3Cpath%20d%3D%22m383.38%20336.87c2.595%200%204.837%200.465%206.721%201.378%201.893%200.922%203.455%202.164%204.708%203.726%201.236%201.57%202.156%203.405%202.75%205.508%200.59%202.109%200.886%204.376%200.886%206.803%200%203.728-0.683%207.25-2.062%2010.57-1.379%203.325-3.25%206.209-5.63%208.669-2.378%202.457-5.186%204.394-8.424%205.825-3.233%201.432-6.748%202.148-10.522%202.148-0.488%200-1.346-0.014-2.558-0.039s-2.605-0.15-4.165-0.361c-1.57-0.219-3.23-0.543-4.983-0.977-1.752-0.426-3.416-1.023-4.983-1.781l14.012-58.876%2012.55-1.945-5.017%2020.893c1.074-0.484%202.156-0.859%203.236-1.132%201.081-0.269%202.241-0.409%203.481-0.409zm-10.527%2034.671c1.89%200%203.671-0.465%205.344-1.378%201.678-0.914%203.126-2.148%204.339-3.685%201.213-1.544%202.173-3.283%202.873-5.226s1.054-3.97%201.054-6.079c0-2.591-0.433-4.612-1.296-6.073-0.863-1.455-2.46-2.187-4.779-2.187-0.76%200-1.739%200.145-2.953%200.404-1.218%200.275-2.308%200.846-3.285%201.705l-5.342%2022.188c0.322%200.057%200.607%200.111%200.85%200.162%200.238%200.055%200.501%200.094%200.763%200.121%200.277%200.031%200.594%200.047%200.977%200.047s0.862%200.001%201.455%200.001z%22%2F%3E%3Cpath%20d%3D%22m411.46%20380.37h-11.987l10.123-42.597h12.069l-10.205%2042.597zm5.833-47.787c-1.673%200-3.19-0.498-4.536-1.496-1.357-0.992-2.029-2.519-2.029-4.577%200-1.132%200.23-2.194%200.686-3.196%200.463-1%201.068-1.861%201.826-2.593%200.757-0.726%201.634-1.306%202.63-1.743%201.002-0.43%202.068-0.645%203.204-0.645%201.672%200%203.181%200.498%204.532%201.496%201.346%201.003%202.023%202.53%202.023%204.577%200%201.136-0.229%202.202-0.689%203.202-0.457%201-1.062%201.861-1.82%202.593-0.751%200.727-1.636%201.305-2.63%201.738-1.003%200.437-2.065%200.644-3.197%200.644z%22%2F%3E%3Cpath%20d%3D%22m432.17%20327.16%2012.555-1.945-3.083%2012.556h13.446l-2.428%209.878h-13.365l-3.56%2014.9c-0.328%201.242-0.514%202.402-0.566%203.48-0.059%201.083%200.078%202.013%200.402%202.796%200.322%200.785%200.901%201.39%201.741%201.818%200.836%200.435%202.033%200.654%203.603%200.654%201.293%200%202.553-0.123%203.771-0.367%201.211-0.24%202.438-0.574%203.68-1.011l0.894%209.236c-1.62%200.594-3.374%201.105-5.264%201.535-1.893%200.436-4.134%200.646-6.724%200.646-3.724%200-6.611-0.553-8.668-1.654-2.054-1.109-3.506-2.624-4.375-4.542-0.857-1.911-1.24-4.114-1.133-6.596%200.111-2.488%200.486-5.103%201.133-7.857l7.941-33.527z%22%2F%3E%3Cpath%20d%3D%22m454.56%20363.36c0-3.669%200.594-7.129%201.781-10.368%201.185-3.242%202.892-6.077%205.107-8.51%202.207-2.421%204.896-4.339%208.061-5.747%203.15-1.4%206.677-2.106%2010.564-2.106%202.433%200%204.606%200.23%206.518%200.691%201.92%200.465%203.657%201.066%205.228%201.82l-4.134%209.4c-1.08-0.438-2.201-0.824-3.36-1.174-1.16-0.357-2.576-0.529-4.251-0.529-4.001%200-7.164%201.379-9.518%204.128-2.345%202.751-3.526%206.454-3.526%2011.099%200%202.753%200.594%204.979%201.786%206.682%201.186%201.703%203.377%202.55%206.558%202.55%201.57%200%203.085-0.164%204.536-0.484%201.462-0.324%202.753-0.732%203.89-1.214l0.895%209.636c-1.516%200.588-3.188%201.119-5.022%201.584-1.838%200.449-4.026%200.682-6.563%200.682-3.349%200-6.184-0.49-8.503-1.455-2.32-0.98-4.237-2.281-5.747-3.929-1.518-1.652-2.608-3.581-3.282-5.795-0.674-2.212-1.018-4.536-1.018-6.961z%22%2F%3E%3Cpath%20d%3D%22m507.81%20381.5c-2.861%200-5.346-0.436-7.454-1.299-2.102-0.863-3.843-2.074-5.22-3.644-1.379-1.562-2.411-3.413-3.118-5.546-0.707-2.132-1.047-4.493-1.047-7.08%200-3.245%200.521-6.489%201.574-9.724%201.048-3.242%202.603-6.155%204.661-8.744%202.042-2.593%204.561-4.713%207.527-6.366%202.963-1.642%206.371-2.468%2010.199-2.468%202.809%200%205.281%200.437%207.418%201.3%202.127%200.861%203.879%202.082%205.264%203.644%201.37%201.57%202.411%203.413%203.111%205.549%200.705%202.128%201.053%204.495%201.053%207.084%200%203.235-0.514%206.479-1.534%209.724-1.021%203.229-2.536%206.149-4.536%208.744-1.996%202.589-4.492%204.708-7.49%206.354-2.994%201.646-6.466%202.472-10.408%202.472zm5.991-34.662c-1.777%200-3.348%200.516-4.693%201.535-1.35%201.031-2.484%202.327-3.398%203.89-0.924%201.57-1.609%203.282-2.072%205.143-0.459%201.865-0.684%203.628-0.684%205.303%200%202.703%200.436%204.808%201.293%206.323%200.869%201.507%202.43%202.265%204.699%202.265%201.783%200%203.346-0.512%204.699-1.542%201.342-1.023%202.477-2.32%203.398-3.886%200.918-1.562%201.609-3.279%202.072-5.143%200.453-1.859%200.684-3.632%200.684-5.304%200-2.696-0.434-4.806-1.299-6.319-0.864-1.507-2.432-2.265-4.699-2.265z%22%2F%3E%3Cpath%20d%3D%22m544.84%20380.37h-11.997l10.123-42.597h12.075l-10.201%2042.597zm5.824-47.787c-1.672%200-3.188-0.498-4.532-1.496-1.35-0.992-2.028-2.519-2.028-4.577%200-1.132%200.233-2.194%200.69-3.196%200.457-1%201.066-1.861%201.824-2.593%200.753-0.726%201.638-1.306%202.632-1.743%200.996-0.43%202.062-0.645%203.194-0.645%201.676%200%203.19%200.498%204.538%201.496%201.349%201.003%202.03%202.53%202.03%204.577%200%201.136-0.242%202.202-0.695%203.202s-1.062%201.861-1.817%202.593c-0.76%200.727-1.634%201.305-2.63%201.738-1.004%200.437-2.068%200.644-3.206%200.644z%22%2F%3E%3Cpath%20d%3D%22m563.68%20339.71c0.91-0.266%201.926-0.586%203.031-0.934%201.109-0.348%202.348-0.672%203.732-0.964%201.369-0.301%202.914-0.545%204.613-0.734%201.699-0.193%203.635-0.287%205.786-0.287%206.322%200%2010.68%201.841%2013.086%205.512%202.404%203.671%202.82%208.695%201.26%2015.063l-5.514%2023h-12.066l5.344-22.516c0.326-1.406%200.582-2.765%200.771-4.093%200.191-1.316%200.18-2.476-0.043-3.48-0.213-0.992-0.715-1.804-1.494-2.433-0.791-0.619-1.986-0.93-3.607-0.93-1.563%200-3.153%200.168-4.776%200.492l-7.857%2032.959h-12.071l9.805-40.655z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat
+}
+
+.icon-Bitcoin_logo-dims {
+    width: 88px;
+    height: 30px;
+    background-size: contain;
+}
+
+.icon-PayPal, .icon-PayPal\:regular {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20id%3D%22PayPal-Layer_1%22%20xml%3Aspace%3D%22preserve%22%20height%3D%2233%22%20viewBox%3D%220%200%20124%2033%22%20width%3D%22124%22%20version%3D%221.1%22%20y%3D%220px%22%20x%3D%220px%22%20enable-background%3D%22new%200%200%20124%2033%22%3E%3Cg%20fill%3D%22%23253B80%22%3E%3Cpath%20d%3D%22m46.211%206.749h-6.839c-0.468%200-0.866%200.34-0.939%200.802l-2.766%2017.537c-0.055%200.346%200.213%200.658%200.564%200.658h3.265c0.468%200%200.866-0.34%200.939-0.803l0.746-4.73c0.072-0.463%200.471-0.803%200.938-0.803h2.165c4.505%200%207.105-2.18%207.784-6.5%200.306-1.89%200.013-3.375-0.872-4.415-0.972-1.142-2.696-1.746-4.985-1.746zm0.789%206.405c-0.374%202.454-2.249%202.454-4.062%202.454h-1.032l0.724-4.583c0.043-0.277%200.283-0.481%200.563-0.481h0.473c1.235%200%202.4%200%203.002%200.704%200.359%200.42%200.469%201.044%200.332%201.906z%22%2F%3E%3Cpath%20d%3D%22m66.654%2013.075h-3.275c-0.279%200-0.52%200.204-0.563%200.481l-0.145%200.916-0.229-0.332c-0.709-1.029-2.29-1.373-3.868-1.373-3.619%200-6.71%202.741-7.312%206.586-0.313%201.918%200.132%203.752%201.22%205.031%200.998%201.176%202.426%201.666%204.125%201.666%202.916%200%204.533-1.875%204.533-1.875l-0.146%200.91c-0.055%200.348%200.213%200.66%200.562%200.66h2.95c0.469%200%200.865-0.34%200.939-0.803l1.77-11.209c0.056-0.345-0.211-0.658-0.561-0.658zm-4.565%206.374c-0.316%201.871-1.801%203.127-3.695%203.127-0.951%200-1.711-0.305-2.199-0.883-0.484-0.574-0.668-1.391-0.514-2.301%200.295-1.855%201.805-3.152%203.67-3.152%200.93%200%201.686%200.309%202.184%200.892%200.499%200.589%200.697%201.411%200.554%202.317z%22%2F%3E%3Cpath%20d%3D%22m84.096%2013.075h-3.291c-0.314%200-0.609%200.156-0.787%200.417l-4.539%206.686-1.924-6.425c-0.121-0.402-0.492-0.678-0.912-0.678h-3.234c-0.393%200-0.666%200.384-0.541%200.754l3.625%2010.638-3.408%204.811c-0.268%200.379%200.002%200.9%200.465%200.9h3.287c0.312%200%200.604-0.152%200.781-0.408l10.946-15.8c0.262-0.378-0.007-0.895-0.468-0.895z%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23179BD7%22%3E%3Cpath%20d%3D%22m94.992%206.749h-6.84c-0.467%200-0.865%200.34-0.938%200.802l-2.766%2017.537c-0.055%200.346%200.213%200.658%200.562%200.658h3.51c0.326%200%200.605-0.238%200.656-0.562l0.785-4.971c0.072-0.463%200.471-0.803%200.938-0.803h2.164c4.506%200%207.105-2.18%207.785-6.5%200.307-1.89%200.012-3.375-0.873-4.415-0.973-1.142-2.696-1.746-4.985-1.746zm0.789%206.405c-0.373%202.454-2.248%202.454-4.062%202.454h-1.031l0.725-4.583c0.043-0.277%200.281-0.481%200.562-0.481h0.473c1.234%200%202.4%200%203.002%200.704%200.359%200.42%200.468%201.044%200.331%201.906z%22%2F%3E%3Cpath%20d%3D%22m115.43%2013.075h-3.273c-0.281%200-0.52%200.204-0.562%200.481l-0.145%200.916-0.23-0.332c-0.709-1.029-2.289-1.373-3.867-1.373-3.619%200-6.709%202.741-7.311%206.586-0.312%201.918%200.131%203.752%201.219%205.031%201%201.176%202.426%201.666%204.125%201.666%202.916%200%204.533-1.875%204.533-1.875l-0.146%200.91c-0.055%200.348%200.213%200.66%200.564%200.66h2.949c0.467%200%200.865-0.34%200.938-0.803l1.771-11.209c0.05-0.345-0.22-0.658-0.57-0.658zm-4.56%206.374c-0.314%201.871-1.801%203.127-3.695%203.127-0.949%200-1.711-0.305-2.199-0.883-0.484-0.574-0.666-1.391-0.514-2.301%200.297-1.855%201.805-3.152%203.67-3.152%200.93%200%201.686%200.309%202.184%200.892%200.5%200.589%200.69%201.411%200.55%202.317z%22%2F%3E%3Cpath%20d%3D%22m119.3%207.23l-2.807%2017.858c-0.055%200.346%200.213%200.658%200.562%200.658h2.822c0.469%200%200.867-0.34%200.939-0.803l2.768-17.536c0.055-0.346-0.213-0.659-0.562-0.659h-3.16c-0.28%200.001-0.52%200.205-0.56%200.482z%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22m7.266%2029.154l0.523-3.322-1.165-0.027h-5.563l3.866-24.513c0.012-0.074%200.051-0.143%200.108-0.192s0.13-0.076%200.206-0.076h9.38c3.114%200%205.263%200.648%206.385%201.927%200.526%200.6%200.861%201.227%201.023%201.917%200.17%200.724%200.173%201.589%200.007%202.644l-0.012%200.077v0.676l0.526%200.298c0.443%200.235%200.795%200.504%201.065%200.812%200.45%200.513%200.741%201.165%200.864%201.938%200.127%200.795%200.085%201.741-0.123%202.812-0.24%201.232-0.628%202.305-1.152%203.183-0.482%200.809-1.096%201.48-1.825%202-0.696%200.494-1.523%200.869-2.458%201.109-0.906%200.236-1.939%200.355-3.072%200.355h-0.73c-0.522%200-1.029%200.188-1.427%200.525-0.399%200.344-0.663%200.814-0.744%201.328l-0.055%200.299-0.924%205.855-0.042%200.215c-0.011%200.068-0.03%200.102-0.058%200.125-0.025%200.021-0.061%200.035-0.096%200.035h-4.507z%22%20fill%3D%22%23253B80%22%2F%3E%3Cpath%20d%3D%22m23.048%207.667c-0.028%200.179-0.06%200.362-0.096%200.55-1.237%206.351-5.469%208.545-10.874%208.545h-2.752c-0.661%200-1.218%200.48-1.321%201.132l-1.409%208.936-0.399%202.533c-0.067%200.428%200.263%200.814%200.695%200.814h4.881c0.578%200%201.069-0.42%201.16-0.99l0.048-0.248%200.919-5.832%200.059-0.32c0.09-0.572%200.582-0.992%201.16-0.992h0.73c4.729%200%208.431-1.92%209.513-7.476%200.452-2.321%200.218-4.259-0.978-5.622-0.362-0.411-0.811-0.752-1.336-1.03z%22%20fill%3D%22%23179BD7%22%2F%3E%3Cpath%20d%3D%22m21.754%207.151c-0.189-0.055-0.384-0.105-0.584-0.15-0.201-0.044-0.407-0.083-0.619-0.117-0.742-0.12-1.555-0.177-2.426-0.177h-7.352c-0.181%200-0.353%200.041-0.507%200.115-0.339%200.163-0.591%200.484-0.652%200.877l-1.564%209.906-0.045%200.289c0.103-0.652%200.66-1.132%201.321-1.132h2.752c5.405%200%209.637-2.195%2010.874-8.545%200.037-0.188%200.068-0.371%200.096-0.55-0.313-0.166-0.652-0.308-1.017-0.429-0.09-0.03-0.183-0.059-0.277-0.087z%22%20fill%3D%22%23222D65%22%2F%3E%3Cpath%20d%3D%22m9.614%207.699c0.061-0.393%200.313-0.714%200.652-0.876%200.155-0.074%200.326-0.115%200.507-0.115h7.352c0.871%200%201.684%200.057%202.426%200.177%200.212%200.034%200.418%200.073%200.619%200.117%200.2%200.045%200.395%200.095%200.584%200.15%200.094%200.028%200.187%200.057%200.278%200.086%200.365%200.121%200.704%200.264%201.017%200.429%200.368-2.347-0.003-3.945-1.272-5.392-1.399-1.593-3.924-2.275-7.155-2.275h-9.38c-0.66%200-1.223%200.48-1.325%201.133l-3.907%2024.765c-0.077%200.49%200.301%200.932%200.795%200.932h5.791l1.454-9.225%201.564-9.906z%22%20fill%3D%22%23253B80%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat
+}
+.inf_container{
+    left: 16px;
+    position: relative;
+    display: inline-block;
+}
+.icon-PayPal-dims {
+    width: 131px;
+    height: 32px
+}
+
+.icon-android_person, .icon-android_person\:regular {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20height%3D%2216%22%3E%3Cpath%20opacity%3D%22.895%22%20d%3D%22m8%207.652a3.827%203.827%200%200%201%200%20-7.652%203.827%203.827%200%200%201%200%207.652zm0%202.088c2.667%200%208%201.391%208%204.174v2.086h-16v-2.087c0-2.783%205.333-4.174%208-4.174z%22%20fill%3D%22%23FFF%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat
+}
+
+.icon-android_person-dims {
+    width: 17px;
+    height: 16px;
+}
+.det_label{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 300;
+    position: relative;
+    top: -3px;
+}
+.det_value{
+    color: #fff;
+    font-size: 1.18em;
+    margin-top: 1px;
+}
+.head_de{
+    margin-bottom: 24px;
+    max-width: 300px;
+}
+.spinner {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: auto;
+}
+.complete_details{
+    font-size: 18px;
+    color: #888;
+    margin-top: 32px;
+    text-align: center;
+    cursor: default;
+}
+.payment_method_ic div{
+    margin: auto;
+    margin-bottom: 40px;
+}
+.loading_box_cont{
+    position: relative;
+    top: 45%;
+    transform: translate(0,-45%);
+}
+span,div{
+    cursor: default;
+}
+.loading_box{
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 9999;
+}
+.double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #0087ff;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+}
+input{
+    outline: none;
+}
+.double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+    0%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 50% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+      }
+}
+
+
+.icon-email, .icon-email\:regular {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20viewBox%3D%220%200%2017%2014%22%20height%3D%2214%22%3E%3Cpath%20opacity%3D%22.9%22%20d%3D%22m15.324%203.52v-1.76l-6.824%204.38-6.824-4.38v1.76l6.824%204.34%206.824-4.34zm0-3.52c0.452%200%200.845%200.177%201.177%200.532%200.333%200.355%200.499%200.764%200.499%201.228v10.48c0%200.464-0.166%200.873-0.499%201.228-0.332%200.355-0.725%200.532-1.177%200.532h-13.648c-0.452%200-0.845-0.177-1.177-0.532a1.742%201.742%200%200%201%20-0.499%20-1.228v-10.48c0-0.464%200.166-0.873%200.499-1.228%200.331-0.355%200.725-0.532%201.177-0.532h13.648z%22%20fill%3D%22%23FFF%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat
+}
+
+.icon-email-dims {
+    width: 17px;
+    height: 14px;
+}
+
+.icon-group, .icon-group\:regular {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2281%22%20viewBox%3D%220%200%2081%2024%22%20height%3D%2224%22%3E%3Cg%20fill-rule%3D%22evenodd%22%20fill%3D%22%23FFF%22%3E%3Ctext%20font-size%3D%2220%22%20font-family%3D%22Roboto-Regular%2C%20Roboto%22%3E%3Ctspan%20y%3D%2219%22%20x%3D%2232.498%22%3ESAVE%3C%2Ftspan%3E%3C%2Ftext%3E%3Cpath%20d%3D%22m22.527%200h-21.46a1.046%201.046%200%201%200%200%202.093h1.147v21.477a0.124%200.124%200%200%200%200.217%200.082l0.96-1.092a0.323%200.323%200%200%201%200.47%20-0.016l1.164%201.164c0.127%200.126%200.331%200.126%200.457%200l1.18-1.179a0.323%200.323%200%200%201%200.456%200l1.18%201.179c0.125%200.126%200.33%200.126%200.456%200l1.179-1.179a0.323%200.323%200%200%201%200.457%200l1.179%201.18c0.126%200.125%200.33%200.125%200.457%200l1.179-1.18a0.323%200.323%200%200%201%200.457%200l1.178%201.18c0.127%200.125%200.331%200.125%200.457%200l1.18-1.18a0.323%200.323%200%200%201%200.456%200l1.18%201.18c0.125%200.125%200.33%200.125%200.456%200l1.16-1.162a0.323%200.323%200%200%201%200.475%200.018l0.959%201.118a0.124%200.124%200%200%200%200.217%20-0.08v-21.51h1.147a1.046%201.046%200%201%200%200%20-2.093zm-17.197%204.161h8.714a0.785%200.785%200%200%201%200%201.57h-8.714a0.785%200.785%200%200%201%200%20-1.57zm12.68%2010.644h-12.739a0.785%200.785%200%200%201%200%20-1.57h12.74a0.785%200.785%200%200%201%200%201.57zm0.06-4.387h-12.739a0.785%200.785%200%200%201%200%20-1.57h12.74a0.785%200.785%200%200%201%200%201.57z%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat
+}
+.error_cc{
+    z-index: 1;
+    display: none;
+    position: absolute;
+    top: -38px;
+    color: #a70000;
+}
+.save_receipt div{
+    cursor: pointer;
+}
+.icon-group-dims {
+    width: 81px;
+    height: 24px;
+    margin: auto;
+}
+
+.icon-invoice, .icon-invoice\:regular {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2235%22%20viewBox%3D%220%200%2035%2035%22%20height%3D%2235%22%3E%3Cpath%20opacity%3D%22.1%22%20d%3D%22m32.852%200h-31.295a1.526%201.526%200%201%200%200%203.052h1.672v31.322a0.18%200.18%200%200%200%200.316%200.12l1.4-1.593a0.471%200.471%200%200%201%200.687%20-0.022l1.697%201.697a0.471%200.471%200%200%200%200.666%200l1.72-1.72a0.471%200.471%200%200%201%200.666%200l1.719%201.72a0.471%200.471%200%200%200%200.666%200l1.72-1.72a0.471%200.471%200%200%201%200.666%200l1.72%201.72a0.471%200.471%200%200%200%200.666%200l1.719-1.72a0.471%200.471%200%200%201%200.666%200l1.72%201.72a0.471%200.471%200%200%200%200.666%200l1.719-1.72a0.471%200.471%200%200%201%200.666%200l1.72%201.72a0.471%200.471%200%200%200%200.666%200l1.693-1.693a0.472%200.472%200%200%201%200.69%200.026l1.4%201.63a0.18%200.18%200%200%200%200.317%20-0.117v-31.37h1.672a1.526%201.526%200%201%200%200%20-3.052zm-25.078%206.068h12.708a1.144%201.144%200%200%201%200%202.289h-12.708a1.144%201.144%200%200%201%200%20-2.289zm18.493%2015.523h-18.58a1.144%201.144%200%200%201%200%20-2.289h18.58a1.144%201.144%200%200%201%200%202.29zm0.087-6.398h-18.58a1.144%201.144%200%200%201%200%20-2.289h18.58a1.144%201.144%200%200%201%200%202.29z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat
+}
+
+.icon-invoice-dims {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-next_arrow, .icon-next_arrow\:regular {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20id%3D%22next_arrow-Layer_1%22%20style%3D%22enable-background%3Anew%200%200%2027.6%2019.4%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%2027.6%2019.4%22%20version%3D%221.1%22%20y%3D%220px%22%20x%3D%220px%22%20width%3D%2232%22%20height%3D%2232%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%09.st0%7Bfill%3A%230087FF%3B%7D%3C%2Fstyle%3E%09%3Cpath%20class%3D%22st0%22%20d%3D%22m18.5%200.3c-0.4-0.4-1-0.4-1.4%200s-0.4%201%200%201.4l7%207h-23.1c-0.5%200-1%200.4-1%201%200%200.5%200.4%201%201%201h23.1l-7%207c-0.4%200.4-0.4%201%200%201.4s1%200.4%201.4%200l8.7-8.7c0.4-0.4%200.4-1%200-1.3l-8.7-8.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat
+}
+
+.icon-next_arrow-dims {
+    width: 32px;
+    height: 32px;
+}
+
+.icon-wallet, .icon-wallet\:regular {
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20viewBox%3D%220%200%2017%2016%22%20height%3D%2216%22%3E%3Cpath%20opacity%3D%22.9%22%20d%3D%22m14.156%203.8h-12.64v-0.51l11.123-0.894v0.895h1.517v-1.525c0-1.119-0.9-1.903-2.002-1.746l-10.152%201.458c-1.102%200.159-2.002%201.203-2.002%202.322v10.168c0%201.121%200.905%202.032%202.022%202.032h12.134a2.029%202.029%200%200%200%202.022%20-2.033v-8.134a2.029%202.029%200%200%200%20-2.022%20-2.034zm-1.517%207.122a1.521%201.521%200%200%201%20-1.517%20-1.525c0-0.841%200.68-1.525%201.517-1.525s1.517%200.684%201.517%201.525c0%200.842-0.68%201.525-1.517%201.525z%22%20fill%3D%22%23FFF%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat
+}
+
+.icon-wallet-dims {
+    width: 17px;
+    height: 16px
+}
+
+
+/*
+* === STRIPE ===
+*/
+
+.stripe_inputs {
+    background-color: #fff;
+}
+
+.stripe_inputs * {
+    font-family: 'Roboto',sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.stripe_inputs .row {
+    display: -ms-flexbox;
+    display: flex;
+
+}
+.mrgbtm{
+    margin-bottom: 25px;
+}
+.stripe_right_margin{
+    margin-right: 20px;
+}
+.stripe_inputs .field {
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+.stripe_halfwidth{
+    float: right;
+    top: 32px;
+    right: 18px;
+    position: absolute;
+}
+.stripe_inputs .field.half-width {
+    min-width: 80px;
+    max-width: 80px;
+}
+
+.stripe_inputs .field.quarter-width {
+    width: calc(25% - 10px);
+}
+
+.stripe_inputs .baseline {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    background-color: #dfdfdf;
+    transition: background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.stripe_inputs label {
+    position: absolute;
+    width: 100%;
+    left: 5px;
+    bottom: 4px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #888;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transform-origin: 0 50%;
+    cursor: text;
+    transition-property: color, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.stripe_inputs .input {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    color: #888;
+    background-color: transparent;
+}
+
+.stripe_inputs .input::-webkit-input-placeholder {
+    color: transparent;
+    transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.stripe_inputs .input::-moz-placeholder {
+    color: transparent;
+    transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.stripe_inputs .input:-ms-input-placeholder {
+    color: transparent;
+    transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.stripe_inputs .input.StripeElement {
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: opacity;
+}
+
+.stripe_inputs .input.focused,
+.stripe_inputs .input:not(.empty) {
+    opacity: 1;
+}
+
+.stripe_inputs .input.focused::-webkit-input-placeholder,
+.stripe_inputs .input:not(.empty)::-webkit-input-placeholder {
+    color: #888;
+}
+
+.stripe_inputs .input.focused::-moz-placeholder,
+.stripe_inputs .input:not(.empty)::-moz-placeholder {
+    color: #888;
+}
+
+.stripe_inputs .input.focused:-ms-input-placeholder,
+.stripe_inputs .input:not(.empty):-ms-input-placeholder {
+    color: #888;
+}
+
+.stripe_inputs .input.focused + label,
+.stripe_inputs .input:not(.empty) + label {
+    color: #888;
+    font-size: 0.8em;
+    transform: translateY(-30px);
+    cursor: default;
+}
+
+.stripe_inputs .input.focused + label {
+    color: #888;
+}
+
+.stripe_inputs .input.invalid + label {
+    color: #ffa27b;
+}
+
+.stripe_inputs .input.focused + label + .baseline {
+    background-color: #dfdfdf;
+}
+
+.stripe_inputs .input.focused.invalid + label + .baseline {
+    background-color: #a70000;
+}
+
+.stripe_inputs input, .stripe_inputs button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border-style: none;
+}
+
+.stripe_inputs input:-webkit-autofill {
+    -webkit-text-fill-color: #e39f48;
+    transition: background-color 100000000s;
+    -webkit-animation: 1ms void-animation-out;
+}
+
+.stripe_inputs .StripeElement--webkit-autofill {
+    background: transparent !important;
+}
+
+.stripe_inputs input, .stripe_inputs button {
+    -webkit-animation: 1ms void-animation-out;
+}
+
+.stripe_inputs button {
+    display: block;
+    width: calc(100% - 30px);
+    height: 40px;
+    margin: 40px 15px 0;
+    background-color: #888;
+    border-radius: 4px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.stripe_inputs input:active {
+    background-color: #888;
+}
+
+.stripe_inputs .error_cc svg {
+    margin-top: 0 !important;
+}
+
+.stripe_inputs .error_cc svg .base {
+    fill: #a70000;
+}
+
+.stripe_inputs .error_cc svg .glyph {
+    fill: #fff;
+}
+
+.stripe_inputs .error_cc .message {
+    color: #a70000;
+}
+
+.stripe_inputs .success .icon .border {
+    stroke: #abe9d2;
+}
+
+.stripe_inputs .success .icon .checkmark {
+    stroke: #24b47e;
+}
+
+.stripe_inputs .success .title {
+    color: #32325d;
+    font-size: 16px !important;
+}
+
+.stripe_inputs .success .message {
+    color: #8898aa;
+    font-size: 13px !important;
+}
+
+.stripe_inputs .success .reset path {
+    fill: #24b47e;
+}
+
+/*
+* === RECEIPT===
+*/
+.receipt_msg{
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+    padding: 0 65px;
+    position: relative;
+    top: 120px;
+    display: none;
+}
+.receipt_msg .payment_id{
+    font-weight: 300;
+    color: #fff;
+    position: relative;
+    top: 30px;
+    font-size: 24px;
+}
+.logo_receipt{
+    top: 60px;
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    cursor: default;
+}
+
+.save_receipt{
+    position: relative;
+    top: 100px;
+}
+.visible{
+    display: block !important;
+}
+
+@media only screen and (max-height: 700px) {
+    #countryselectorlist ul{
+        height: 250px;
+    }
+}
+@media only screen and (max-width: 700px){
+    #countryselectorlist, #countrpar, #countryselector{
+        width: 90%;
+    }
+    .main_container{
+        max-width: 98%;
+    }
+}
+@media only screen and (max-width: 392px){
+    .save_receipt{
+        top: 60px;
+    }
+}
+@media only screen and (max-width: 670px){
+    .details_half_up{
+        top: 100px !important;
+    }
+    .details_field .group input{
+        width: 100%;
+    }
+    .cardCol .widerow {
+        width: calc(100% - 100px);
+    }
+    .cardCol .widerow input {
+        width: 100%;
+    }
+    .receipt_msg{
+        padding: 0 14px;
+    }
+    #detailscreen{
+        z-index: 1;
+    }
+    #detailscreen_pg{
+        z-index: 2;
+    }
+    .detailsside{
+        top: 350px;
+        right: 1%;
+        width: 98%;
+    }
+}
+/*
+* === FOOTER ===
+*/
+.footer{
+    color: #cfd7df;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    position: fixed;
+    padding-bottom: 10px;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+}
+.footer a{
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-decoration: inherit;
+}
+@media only screen and (max-height: 614px) and (min-width: 670px){
+    .footer{
+        position: absolute;
+        bottom: -70px !important;
+    }
+}
+@media only screen and (max-height: 614px),screen and (max-width: 670px){
+    .footer{
+        position: absolute;
+        bottom: -40px;
+    }
+}
+@media only screen and (max-width: 670px){
+    .footer_ext{
+        bottom: -200px;
+    }
+    .footer_ex_ext{
+        bottom: -450px;
+    }
+}
+
