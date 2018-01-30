@@ -6,6 +6,7 @@ A modern website/webpage to easily accept payment for your work/service/product 
  - PHP 5.4+
  - [cURL](http://php.net/manual/en/curl.installation.php) extension in PHP
  - [mbstring](http://php.net/manual/en/book.mbstring.php) extension in PHP
+ - [OpenSSL](http://php.net/manual/en/book.openssl.php) extension in PHP
 
 ## Installation
 Just upload the files on server and configure the config.php
