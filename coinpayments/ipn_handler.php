@@ -1,12 +1,12 @@
 <?php
 
-include_once 'functions.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/includes/functions.php';
 
-include_once '../gateways/coinpayments/RonMelkhior/CoinpaymentsIPN/Initialize.php';
-include_once '../gateways/coinpayments/RonMelkhior/CoinpaymentsIPN/Exceptions/FailedPaymentException.php';
-include_once '../gateways/coinpayments/RonMelkhior/CoinpaymentsIPN/Exceptions/InsufficientDataException.php';
-include_once '../gateways/coinpayments/RonMelkhior/CoinpaymentsIPN/Exceptions/InvalidRequestException.php';
-include_once '../gateways/coinpayments/RonMelkhior/CoinpaymentsIPN/IPN.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/gateways/coinpayments/RonMelkhior/CoinpaymentsIPN/Initialize.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/gateways/coinpayments/RonMelkhior/CoinpaymentsIPN/Exceptions/FailedPaymentException.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/gateways/coinpayments/RonMelkhior/CoinpaymentsIPN/Exceptions/InsufficientDataException.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/gateways/coinpayments/RonMelkhior/CoinpaymentsIPN/Exceptions/InvalidRequestException.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/gateways/coinpayments/RonMelkhior/CoinpaymentsIPN/IPN.php';
 
 /*
  *  This is use to process Coinpayments Transactions

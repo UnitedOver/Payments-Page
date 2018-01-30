@@ -1,13 +1,13 @@
 <?php
 
-include_once 'parsecsv.lib.php';
-include_once 'config.php';
-include_once('../gateways/coinpayments/coinpayments.inc.php');
+include_once $_SERVER['DOCUMENT_ROOT'].'/includes/parsecsv.lib.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/config.php';
+include_once($_SERVER['DOCUMENT_ROOT'].'/gateways/coinpayments/coinpayments.inc.php');
 
-include_once('../gateways/2checkout/Twocheckout.php');
-include_once('../gateways/stripe/init.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/gateways/2checkout/Twocheckout.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/gateways/stripe/init.php');
 
-include_once('../gateways/PayPal/autoload.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/gateways/PayPal/autoload.php');
 use PayPal\Api\Amount;
 use PayPal\Api\Details;
 use PayPal\Api\Item;
@@ -18,7 +18,6 @@ use PayPal\Api\Payment;
 use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
 
-update_pending_payment(4,"LTC 123","123",true);
 
 /*
  * @return payment details csv
@@ -221,7 +220,7 @@ function paypal_process($name, $country, $email, $reason,$payment_id){
  * This will process CoinPayment gateway
  */
 if(isset($_POST['create_transaction_coinpayment'])){
-if($accept['bitcoin']==1) {
+if($accept['coinpayments']==1) {
     create_transaction_coinpayment();
 }else{
  error_message('Payment not supported');// Throw error if CoinPayments is disabled
@@ -303,31 +302,6 @@ function create_transaction_coinpayment(){
     die();
 
 
-   /* $cps = new CoinPaymentsAPI();
-    $cps->Setup($coin_payment_details['private_key'], $coin_payment_details['public_key']);
-    $req = array(
-        'buyer_email' => $email,
-        'amount' => $amount,
-        'currency1' => $currency,
-        'currency2' => 'BTC',
-        'address' => '',
-        'item_name' => $site_name.'/'.$reason,
-        'ipn_url' => $coin_payment_details['ipn_url'],
-    );
-
-
-    $result = $cps->CreateTransaction($req);
-    if ($result['error'] == 'ok') {
-        $transaction_id = $result['result']['txn_id'];
-        add_pending_payment($name,$country,$email,$amount,$reason,'CoinPayments',$transaction_id);
-        header('Content-type: application/json');
-        $data = [ 'success' => 1, 'redirect_url' => $result['result']['status_url']];
-        echo json_encode( $data );
-        die();
-
-    } else {
-        error_message($result['error']);
-    }*/
 
 
 }

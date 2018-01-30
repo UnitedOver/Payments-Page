@@ -1,10 +1,5 @@
 <?php
-
-include_once 'includes/config.php';
-
-
-
-
+include_once $_SERVER['DOCUMENT_ROOT'].'/config.php';
 ?><!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -162,7 +157,7 @@ include_once 'includes/config.php';
                 <div class="orpaywith">or pay with</div>
                 <div class="otherPayOptions">
                     <?php if($accept['paypal']==1){?><div class="otbtn paywithPaypal"><div id="paypal-button"></div></div><?php } ?>
-                    <?php if($accept['bitcoin']==1){?><div class="otbtn paywithBTC">
+                    <?php if($accept['coinpayments']==1){?><div class="otbtn paywithBTC">
                         <?php
                             if($coin_payment_details['show_bitcoin_icon']==1)
                                 echo '<div class="icon-Bitcoin_logo icon-Bitcoin_logo-dims"></div>';
@@ -204,7 +199,7 @@ include_once 'includes/config.php';
             <div class="payment_invoice_id"></div>
         </div>
 </form>
-    <?php if($accept['bitcoin']==1){?>
+    <?php if($accept['coinpayments']==1){?>
     <form action="https://www.coinpayments.net/index.php" method="post" id="coinpayments_pay">
         <input type="hidden" name="cmd" value="_pay_simple">
         <input type="hidden" name="reset" value="1">
@@ -630,7 +625,7 @@ if($gateway===1){
         var details_view = jQuery(".details_view");
         var payment_methods = jQuery(".payment_methods");
         var details_field = jQuery(".details_field");
-
+        var logo = jQuery("#logo");
         var stage = -1;
         updateboxPos();
 
@@ -667,7 +662,7 @@ if($gateway===1){
         jQuery(".selcountryp").click(function(){
             if(stage!=0) return;
             countryselector.hide();
-            jQuery(".logo_landing").removeClass("logo_landing").addClass("logo_details_page");
+            logo.removeClass("logo_landing").addClass("logo_details_page");
             detailsScreen.removeClass("selcountryp").addClass("detailsside details_half_up");
 
             if(footer.length) footer.addClass("footer_ext");
@@ -709,11 +704,11 @@ if($gateway===1){
             switch (stage) {
                 case 1:
                     nextButton.detach().appendTo(detailsScreen);
-                    countryselector.fadeIn();
-                    invoice_ic.hide();
-                    jQuery(".logo_details_page").removeClass("logo_details_page").addClass("logo_landing");
-                    detailsScreen.removeClass("detailsside details_half_up").addClass("selcountryp");
+                    countryselector.show();
+                    logo.removeClass("logo_details_page").addClass("logo_landing");
                     detailsScreenPg.hide();
+                    invoice_ic.hide();
+                    detailsScreen.removeClass("detailsside details_half_up").addClass("selcountryp");
                     if(footer.length) footer.removeClass("footer_ext");
                     stage = 0;
                     break;
