@@ -24,9 +24,9 @@ use PayPal\Api\Transaction;
  */
 function get_payment_csv(){
     $csv = new parseCSV();
-    $csv->fields = ['Payment ID','Transaction ID', 'Name','Country','Email','Reason','Amount','Payment Method','Time'];
+    $csv->fields = ['Payment ID','Transaction ID', 'Name','Country','Email','Reason','Amount','Payment Method','Time','IP Address'];
     $csv->sort_by = 'Payment ID';
-    $csv->parse('../data/payment_info.csv');
+    $csv->parse($_SERVER['DOCUMENT_ROOT'].'/data/payment_info.csv');
     return $csv;
 }
 /*
@@ -37,22 +37,21 @@ function add_payment($name,$country,$email,$amount,$reason,$payment_method,$tran
     global $payment_id,$currency;
     $pid = -1;
 
-
-
     $csv = get_payment_csv();
 
     $csv_data = $csv->data;
 
-    if(is_array($csv_data)){
-        $csv_data = array_values($csv_data);
-        $data_len = count($csv_data);
+    if($updatePaymentID==0) {
+        if (is_array($csv_data)) {
+            $csv_data = array_values($csv_data);
+            $data_len = count($csv_data);
 
-        if($data_len>0) $pid = $csv_data[$data_len - 1]['Payment ID'] + 1;
-
-        if($payment_id<$pid) $payment_id = $pid;
-
+            if ($data_len > 0) $pid = $csv_data[$data_len - 1]['Payment ID'] + 1;
+            if ($payment_id < $pid) $payment_id = $pid;
+        }
+    }else{
+        $payment_id = $updatePaymentID;
     }
-
     if($details_array!=null && is_array($details_array)){
 
         $p_row = array('Payment ID '=>$payment_id) + $details_array;
@@ -61,11 +60,11 @@ function add_payment($name,$country,$email,$amount,$reason,$payment_method,$tran
 
 
     }else {
+        $row = array($payment_id, $transaction_id, $name, $country, $email, $reason, $currency . " " . $amount, $payment_method, date("h:i:sa, d M Y"),getIP());
         if ($updatePaymentID == 0) {
-            $csv->data[] = array($payment_id, $transaction_id, $name, $country, $email, $reason, $currency . " " . $amount, $payment_method, date("h:i:sa, d M Y"));
+            $csv->data[] = $row;
         } else {
-            $csv->data[$updatePaymentID] = array($updatePaymentID, $transaction_id, $name, $country, $email, $reason, $currency . " " . $amount, $payment_method, date("h:i:sa, d M Y"));
-
+            $csv->data[$updatePaymentID] = $row;
         }
     }
     $csv->save();
@@ -79,23 +78,20 @@ function add_payment($name,$country,$email,$amount,$reason,$payment_method,$tran
  */
 
 function remove_payment_entry($payment_id){
-    $csv = new parseCSV();
-    $csv->sort_by = 'Payment ID';
-    $csv->parse('../data/payment_info.csv');
-    unset($csv->data[$payment_id]);
-    $csv->save();
+    $csv = get_payment_csv();
+    if(isset($csv->data[$payment_id])) {
+        unset($csv->data[$payment_id]);
+        $csv->save();
+    }
 }
 
-//update_pending_payment(7,"BTC 100","123123",true);
 /*
  * @params $ID => ID of payment
  * @params $SUCCESS => Whether payment was successfull or not
  * This will update details of pending payment
  */
 function update_pending_payment($id,$amount,$txn_id,$success){
-    $csv = new parseCSV();
-    $csv->sort_by = 'ID';
-    $csv->parse('../data/pending_payment.csv');
+    $csv = get_pendingcsv('ID');
 
     if(isset($csv->data[$id])) {
         if ($success) {
@@ -341,10 +337,7 @@ function error_message($message){
  */
 function add_pending_payment($name,$country,$email,$amount,$reason,$payment_method){
     global $currency;
-    $csv = new parseCSV();
-    $csv->fields = ['ID', 'Name','Country', 'Email','Reason','Amount','Payment Method','Time'];
-    $csv->parse('../data/pending_payment.csv');
-
+    $csv = get_pendingcsv('ID');
     $id = 1;
     $csv_data = $csv->data;
 
@@ -358,11 +351,27 @@ function add_pending_payment($name,$country,$email,$amount,$reason,$payment_meth
 
     }
 
-    $csv->data[] = array($id,$name,$country,$email,$reason,$currency." ".$amount,$payment_method,date("h:i:sa, d M Y"));
+    $csv->data[] = array($id,$name,$country,$email,$reason,$currency." ".$amount,$payment_method,date("h:i:sa, d M Y"),getIP());
     $csv->save();
     return $id;
 }
 
+/*
+ * @return pending payment details csv
+ */
+function get_pendingcsv($sortby){
+    $csv = new parseCSV();
+    $csv->fields = ['ID', 'Name','Country', 'Email','Reason','Amount','Payment Method','Time','IP Address'];
+    $csv->sort_by = $sortby;
+    $csv->parse($_SERVER['DOCUMENT_ROOT'].'/data/pending_payment.csv');
+    return $csv;
+}
+
+
+function getIP(){
+    $ip = filter_ip($_SERVER['REMOTE_ADDR']);
+    return $ip;
+}
 /*
  * @param String: You want to clear
  * @return filtered Strings
@@ -376,6 +385,10 @@ function filter_email($email){
 }
 function filter_number($number){
     return filter_var(trim($number), FILTER_SANITIZE_NUMBER_FLOAT);
+}
+function filter_ip($ip) {
+    $ip = filter_var($ip, FILTER_VALIDATE_IP);
+    return ($ip)? $ip : -1;
 }
 
 
