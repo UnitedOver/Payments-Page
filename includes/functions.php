@@ -274,9 +274,13 @@ function two_checkout_process($payment_id,$amount,$token){
             return $charge['response']['transactionId'];
         }
     }catch (Twocheckout_Error $e) {
+        remove_payment_entry($payment_id);
         error_message($e->getMessage());
     }
+
+    return null;
 }
+
 
 /*
  * This will create a pending payment id for coinpayment and will be returned to client browser
